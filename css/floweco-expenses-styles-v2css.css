@@ -1,0 +1,1214 @@
+/* ========================================
+   FlowEco Expenses v2 - Mobile First Design
+   ======================================== */
+
+/* ========================================
+   BASE & VARIABLES
+   ======================================== */
+
+.expenses-page-v2 {
+    --exp-primary: #10B981;
+    --exp-primary-dark: #059669;
+    --exp-secondary: #8B5CF6;
+    --exp-tertiary: #F59E0B;
+    --exp-danger: #EF4444;
+    --exp-danger-dark: #DC2626;
+    --exp-info: #3B82F6;
+    
+    --exp-bg: #0a0a0f;
+    --exp-card: rgba(255, 255, 255, 0.03);
+    --exp-card-hover: rgba(255, 255, 255, 0.06);
+    --exp-border: rgba(255, 255, 255, 0.08);
+    --exp-glass: rgba(255, 255, 255, 0.05);
+    
+    --exp-text: #F9FAFB;
+    --exp-text-secondary: #D1D5DB;
+    --exp-text-muted: #9CA3AF;
+    
+    --exp-radius: 16px;
+    --exp-radius-sm: 10px;
+    --exp-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    
+    direction: rtl;
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--exp-text);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.exp-header {
+    margin-bottom: 1.5rem;
+}
+
+.exp-header-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.exp-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--exp-text);
+}
+
+.exp-subtitle {
+    font-size: 0.9rem;
+    color: var(--exp-text-muted);
+    margin: 0.25rem 0 0 0;
+}
+
+.exp-header-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.exp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: var(--exp-radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.exp-btn-primary {
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-primary-dark));
+    color: white;
+}
+
+.exp-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.exp-btn-secondary {
+    background: linear-gradient(135deg, var(--exp-secondary), #7C3AED);
+    color: white;
+}
+
+.exp-btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.exp-btn-tertiary {
+    background: linear-gradient(135deg, var(--exp-tertiary), #D97706);
+    color: white;
+}
+
+.exp-btn-tertiary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* ========================================
+   MONTH SELECTOR
+   ======================================== */
+
+.exp-month-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--exp-card);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+    margin-bottom: 1.5rem;
+}
+
+.exp-month-selector {
+    direction: ltr;
+}
+
+.exp-month-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--exp-glass);
+    color: var(--exp-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-month-btn:hover {
+    background: var(--exp-primary);
+    transform: scale(1.1);
+}
+
+.exp-month-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+#expMonthName {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--exp-text);
+}
+
+.exp-today-btn {
+    padding: 0.25rem 0.75rem;
+    background: transparent;
+    border: 1px solid var(--exp-primary);
+    border-radius: 20px;
+    color: var(--exp-primary);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-today-btn:hover {
+    background: var(--exp-primary);
+    color: white;
+}
+
+/* ========================================
+   SUMMARY CARDS
+   ======================================== */
+
+.exp-summary-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.exp-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--exp-card);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+    transition: all 0.2s ease;
+}
+
+.exp-summary-card:hover {
+    background: var(--exp-card-hover);
+    transform: translateY(-2px);
+}
+
+.exp-card-icon {
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--exp-glass);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.exp-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.exp-card-label {
+    font-size: 0.75rem;
+    color: var(--exp-text-muted);
+}
+
+.exp-card-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--exp-text);
+}
+
+.exp-card-total {
+    border-color: var(--exp-primary);
+    border-width: 2px;
+}
+
+.exp-card-total .exp-card-value {
+    color: var(--exp-primary);
+}
+
+.exp-card-regular .exp-card-icon {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.exp-card-installments .exp-card-icon {
+    background: rgba(139, 92, 246, 0.2);
+}
+
+.exp-card-loans .exp-card-icon {
+    background: rgba(245, 158, 11, 0.2);
+}
+
+/* ========================================
+   CARDS BREAKDOWN
+   ======================================== */
+
+.exp-cards-breakdown {
+    background: var(--exp-card);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.exp-section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: var(--exp-text);
+}
+
+.exp-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.exp-card-breakdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--exp-glass);
+    border-radius: var(--exp-radius-sm);
+}
+
+.exp-card-breakdown-icon {
+    font-size: 1.25rem;
+}
+
+.exp-card-breakdown-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.exp-card-breakdown-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--exp-text);
+}
+
+.exp-card-breakdown-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-top: 0.4rem;
+    overflow: hidden;
+}
+
+.exp-card-breakdown-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--exp-primary), var(--exp-secondary));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.exp-card-breakdown-amount {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--exp-primary);
+    white-space: nowrap;
+}
+
+/* ========================================
+   TABS
+   ======================================== */
+
+.exp-tabs {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: var(--exp-card);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+    margin-bottom: 1rem;
+    overflow-x: auto;
+}
+
+.exp-tab {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--exp-radius-sm);
+    color: var(--exp-text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.exp-tab:hover {
+    background: var(--exp-glass);
+    color: var(--exp-text);
+}
+
+.exp-tab.active {
+    background: var(--exp-primary);
+    color: white;
+}
+
+/* ========================================
+   FILTERS
+   ======================================== */
+
+.exp-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--exp-card);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+    margin-bottom: 1.5rem;
+}
+
+.exp-filter-group {
+    width: 100%;
+}
+
+.exp-filter-input,
+.exp-filter-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--exp-glass);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-sm);
+    color: var(--exp-text);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.exp-filter-input:focus,
+.exp-filter-select:focus {
+    outline: none;
+    border-color: var(--exp-primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.exp-filter-input::placeholder {
+    color: var(--exp-text-muted);
+}
+
+.exp-filter-select option,
+.exp-filter-select optgroup {
+    background: #1a1a2e;
+    color: var(--exp-text);
+}
+
+.exp-btn-reset {
+    padding: 0.75rem 1rem;
+    background: var(--exp-glass);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-sm);
+    color: var(--exp-text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-btn-reset:hover {
+    background: var(--exp-danger);
+    border-color: var(--exp-danger);
+    color: white;
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+
+.exp-section {
+    margin-bottom: 1.5rem;
+}
+
+.exp-section.hidden {
+    display: none;
+}
+
+.exp-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.exp-section-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--exp-text);
+}
+
+.exp-count {
+    font-size: 0.85rem;
+    color: var(--exp-text-muted);
+    padding: 0.25rem 0.75rem;
+    background: var(--exp-glass);
+    border-radius: 20px;
+}
+
+/* ========================================
+   LIST ITEMS
+   ======================================== */
+
+.exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.exp-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--exp-card);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-item:hover {
+    background: var(--exp-card-hover);
+    border-color: var(--exp-primary);
+    transform: translateX(-4px);
+}
+
+.exp-item-main {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.exp-item-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: var(--exp-glass);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.exp-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.exp-item-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--exp-text);
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.exp-item-desc {
+    font-size: 0.8rem;
+    color: var(--exp-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.exp-item-amount {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--exp-danger);
+    white-space: nowrap;
+}
+
+.exp-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--exp-border);
+}
+
+.exp-item-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.6rem;
+    background: var(--exp-glass);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--exp-text-secondary);
+}
+
+.exp-item-tag.recurring {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--exp-primary);
+}
+
+/* Installment specific */
+.exp-item-progress {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.exp-item-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--exp-secondary), var(--exp-primary));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.exp-item-progress-text {
+    font-size: 0.8rem;
+    color: var(--exp-text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Loan specific */
+.exp-loan-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--exp-border);
+}
+
+.exp-loan-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.exp-loan-detail-label {
+    font-size: 0.7rem;
+    color: var(--exp-text-muted);
+}
+
+.exp-loan-detail-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--exp-text);
+}
+
+/* Empty state */
+.exp-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--exp-text-muted);
+}
+
+.exp-empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.exp-empty-text {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.exp-empty-hint {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* ========================================
+   PAGINATION
+   ======================================== */
+
+.exp-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--exp-card);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+}
+.exp-pagination {
+    direction: ltr;
+}
+
+.exp-page-btn {
+    padding: 0.5rem 1rem;
+    background: var(--exp-glass);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-sm);
+    color: var(--exp-text);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-page-btn:hover:not(:disabled) {
+    background: var(--exp-primary);
+    border-color: var(--exp-primary);
+}
+
+.exp-page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.exp-page-info {
+    font-size: 0.85rem;
+    color: var(--exp-text-muted);
+}
+
+/* ========================================
+   MODALS
+   ======================================== */
+
+.exp-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.exp-modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+.exp-modal {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(145deg, #1a1a2e, #16162a);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius);
+    margin: auto;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.exp-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--exp-border);
+}
+
+.exp-modal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--exp-text);
+}
+
+.exp-modal-close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--exp-glass);
+    border: none;
+    border-radius: 50%;
+    color: var(--exp-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-modal-close:hover {
+    background: var(--exp-danger);
+}
+
+/* ========================================
+   FORM
+   ======================================== */
+
+.exp-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+}
+
+.exp-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.exp-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.exp-form-group.hidden {
+    display: none;
+}
+
+.exp-form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #E5E7EB;
+}
+
+.exp-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.exp-input-prefix {
+    position: absolute;
+    right: 1rem;
+    color: var(--exp-text-muted);
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.exp-input-wrapper .exp-form-input {
+    padding-right: 2.5rem;
+}
+
+.exp-form-input,
+.exp-form-select,
+.exp-form-textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--exp-radius-sm);
+    color: #FFFFFF;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.exp-form-input:focus,
+.exp-form-select:focus,
+.exp-form-textarea:focus {
+    outline: none;
+    border-color: var(--exp-primary);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.exp-form-input::placeholder {
+    color: #9CA3AF;
+}
+
+.exp-form-select option,
+.exp-form-select optgroup {
+    background: #1a1a2e;
+    color: #FFFFFF;
+}
+
+.exp-form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.exp-calculated-value {
+    padding: 0.875rem 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--exp-primary);
+    border-radius: var(--exp-radius-sm);
+    color: var(--exp-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.exp-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--exp-radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-checkbox-label:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.exp-checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--exp-primary);
+}
+
+.exp-checkbox-text {
+    font-size: 0.95rem;
+    color: #E5E7EB;
+}
+
+/* ========================================
+   MODAL FOOTER
+   ======================================== */
+
+.exp-modal-footer {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border-top: 1px solid var(--exp-border);
+}
+
+.exp-btn-cancel {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    background: var(--exp-glass);
+    border: 1px solid var(--exp-border);
+    border-radius: var(--exp-radius-sm);
+    color: var(--exp-text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.exp-btn-save {
+    flex: 2;
+    padding: 0.875rem 1rem;
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-primary-dark));
+    border: none;
+    border-radius: var(--exp-radius-sm);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.exp-btn-danger {
+    padding: 0.875rem 1rem;
+    background: var(--exp-danger);
+    border: none;
+    border-radius: var(--exp-radius-sm);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exp-btn-danger:hover {
+    background: var(--exp-danger-dark);
+}
+
+/* ========================================
+   TOAST
+   ======================================== */
+
+.exp-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #1a1a2e, #16162a);
+    border: 1px solid var(--exp-primary);
+    border-radius: var(--exp-radius);
+    color: var(--exp-text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.exp-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.exp-toast.success {
+    border-color: var(--exp-primary);
+}
+
+.exp-toast.error {
+    border-color: var(--exp-danger);
+}
+
+/* ========================================
+   DESKTOP STYLES
+   ======================================== */
+
+@media (min-width: 768px) {
+    .expenses-page-v2 {
+        padding: 2rem;
+    }
+
+    .exp-header-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .exp-title {
+        font-size: 2rem;
+    }
+
+    .exp-summary-cards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+    .exp-card-value {
+        font-size: 1.3rem;
+    }
+
+    .exp-filters {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .exp-filter-group {
+        width: auto;
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .exp-btn-reset {
+        width: auto;
+    }
+
+    .exp-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .exp-item-main {
+        flex: 1;
+    }
+
+    .exp-item-meta {
+        padding-top: 0;
+        padding-right: 1rem;
+        border-top: none;
+        border-right: 1px solid var(--exp-border);
+    }
+
+    .exp-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .exp-loan-details {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .exp-cards-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .exp-card-breakdown-item {
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ========================================
+   RTL & BRIGHTNESS FIXES
+   ======================================== */
+
+.exp-modal {
+    direction: rtl;
+    text-align: right;
+}
+
+.exp-modal-header {
+    flex-direction: row-reverse;
+}
+
+.exp-modal-title {
+    color: #FFFFFF !important;
+}
+
+.exp-modal-footer {
+    flex-direction: row-reverse;
+}
+
+.exp-form-label {
+    color: #E5E7EB !important;
+}
+
+.exp-form-group {
+    text-align: right;
+}
+
+.exp-month-btn {
+    font-size: 1.25rem;
+}
+
+.exp-month-btn {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #60A5FA;
+}
+
+.exp-page-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #9CA3AF;
+}
+
+/* ========================================
+   QUICK ADD CARD - ADD TO EXPENSES CSS
+   ======================================== */
+
+/* Card Select Wrapper */
+.exp-card-select-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.exp-card-select-wrapper .exp-form-select {
+    flex: 1;
+}
+
+.exp-btn-add-card {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--exp-primary), var(--exp-purple));
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.exp-btn-add-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Small Modal */
+.exp-modal-small {
+    max-width: 400px;
+}
+
+/* Color Picker */
+.exp-color-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.exp-color-option {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.exp-color-option:hover {
+    transform: scale(1.15);
+}
+
+.exp-color-option.selected {
+    border-color: white;
+    box-shadow: 0 0 0 2px var(--exp-primary), 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Category Colors */
+.cat-דיור { background: rgba(239, 68, 68, 0.2) !important; }
+.cat-חשמל { background: rgba(245, 158, 11, 0.2) !important; }
+.cat-מים { background: rgba(59, 130, 246, 0.2) !important; }
+.cat-גז { background: rgba(249, 115, 22, 0.2) !important; }
+.cat-ארנונה { background: rgba(139, 92, 246, 0.2) !important; }
+.cat-ביטוחים { background: rgba(20, 184, 166, 0.2) !important; }
+.cat-מנויים { background: rgba(236, 72, 153, 0.2) !important; }
+.cat-מזון { background: rgba(34, 197, 94, 0.2) !important; }
+.cat-תחבורה { background: rgba(99, 102, 241, 0.2) !important; }
+.cat-בילויים { background: rgba(244, 63, 94, 0.2) !important; }
+.cat-קניות { background: rgba(168, 85, 247, 0.2) !important; }
+.cat-בריאות { background: rgba(6, 182, 212, 0.2) !important; }
+.cat-חינוך { background: rgba(251, 146, 60, 0.2) !important; }
+.cat-ספורט { background: rgba(74, 222, 128, 0.2) !important; }
+.cat-טיפוח { background: rgba(251, 113, 133, 0.2) !important; }
+.cat-חיות { background: rgba(132, 204, 22, 0.2) !important; }
+.cat-מתנות { background: rgba(217, 70, 239, 0.2) !important; }
+.cat-אחר { background: rgba(148, 163, 184, 0.2) !important; }

@@ -1,0 +1,613 @@
+/* ========================================
+   FlowEco Sidebar v2 - Mobile First
+   Clean, No Conflicts
+   ======================================== */
+
+/* ========================================
+   VARIABLES
+   ======================================== */
+
+.floweco-sidebar {
+    --sb-width: 280px;
+    --sb-bg: rgba(10, 10, 15, 0.98);
+    --sb-glass: rgba(255, 255, 255, 0.04);
+    --sb-glass-hover: rgba(255, 255, 255, 0.08);
+    --sb-border: rgba(255, 255, 255, 0.08);
+    --sb-primary: #10B981;
+    --sb-primary-dark: #059669;
+    --sb-primary-glow: rgba(16, 185, 129, 0.4);
+    --sb-secondary: #3B82F6;
+    --sb-text: #F9FAFB;
+    --sb-text-muted: #9CA3AF;
+    --sb-danger: #EF4444;
+    --sb-radius: 12px;
+    --sb-radius-sm: 8px;
+}
+
+/* ========================================
+   SIDEBAR CONTAINER
+   ======================================== */
+
+.floweco-sidebar {
+    position: fixed;
+    top: -50px;
+    right: 0;
+    width: 85%;
+    max-width: var(--sb-width);
+    height: calc(100vh + 100px);
+    height: calc(100dvh + 100px);
+    padding-top: 50px;
+    background: var(--sb-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    z-index: 99999;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 1px solid var(--sb-border);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    direction: rtl;
+    overflow: hidden;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.floweco-sidebar.open {
+    transform: translateX(0);
+}
+
+/* ========================================
+   CLOSE BUTTON
+   ======================================== */
+
+.sb-close {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 44px;
+    height: 44px;
+    background: var(--sb-glass);
+    border: 1px solid var(--sb-border);
+    border-radius: 50%;
+    color: var(--sb-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    z-index: 10;
+    padding: 0;
+}
+
+.sb-close:hover {
+    background: var(--sb-danger);
+    border-color: var(--sb-danger);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.sb-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.sb-header {
+    padding: 1.5rem;
+    padding-top: 1.75rem;
+    border-bottom: 1px solid var(--sb-border);
+    background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.05));
+}
+
+.sb-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sb-logo-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--sb-primary), var(--sb-secondary));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 20px var(--sb-primary-glow);
+    flex-shrink: 0;
+}
+
+.sb-logo-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.sb-logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sb-logo-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--sb-text);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.sb-logo-badges {
+    display: flex;
+    gap: 6px;
+}
+
+.sb-badge {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    min-width: 45px !important;
+    text-align: center !important;
+}
+
+.sb-badge-version {
+    background: var(--sb-glass) !important;
+    border: 1px solid var(--sb-border) !important;
+    color: var(--sb-text-muted) !important;
+    font-family: 'SF Mono', Monaco, monospace !important;
+    border-radius: 8px !important;
+}
+
+.sb-badge-beta {
+    background: rgba(251, 191, 36, 0.15) !important;
+    border: 1px solid rgba(251, 191, 36, 0.4) !important;
+    color: #FBBF24 !important;
+    border-radius: 8px !important;
+}
+
+.sb-credit {
+    font-size: 0.8rem;
+    color: var(--sb-text-muted);
+    margin: 0.85rem 0 0 0;
+}
+
+.sb-credit a {
+    color: var(--sb-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.sb-credit a:hover {
+    color: var(--sb-secondary);
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.sb-nav {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sb-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sb-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sb-nav::-webkit-scrollbar-thumb {
+    background: var(--sb-border);
+    border-radius: 4px;
+}
+
+.sb-nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sb-nav-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--sb-text-muted);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 0.5rem 0.35rem;
+}
+
+.sb-nav-spacer {
+    flex: 1;
+    min-height: 1rem;
+}
+
+/* ========================================
+   NAV LINKS
+   ======================================== */
+
+.sb-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 14px;
+    background: var(--sb-glass);
+    border: 1px solid transparent;
+    border-radius: var(--sb-radius);
+    color: var(--sb-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.sb-nav-link:hover {
+    background: var(--sb-glass-hover);
+    border-color: var(--sb-border);
+    color: var(--sb-text);
+    transform: translateX(-4px);
+}
+
+.sb-nav-link.active {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: var(--sb-primary);
+    color: var(--sb-text);
+    box-shadow: 0 4px 20px var(--sb-primary-glow);
+}
+
+.sb-nav-link.active::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: var(--sb-primary);
+    border-radius: 4px 0 0 4px;
+}
+
+.sb-nav-icon {
+    font-size: 1.3rem;
+    width: 28px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sb-nav-text {
+    flex: 1;
+}
+
+/* ========================================
+   LINK BADGES
+   ======================================== */
+
+.sb-badge-soon {
+    background: rgba(148, 163, 184, 0.2) !important;
+    color: var(--sb-text-muted) !important;
+    border: 1px solid var(--sb-border) !important;
+    border-radius: 8px !important;
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+}
+
+.sb-badge-ai {
+    background: linear-gradient(135deg, var(--sb-primary), var(--sb-secondary)) !important;
+    color: white !important;
+    box-shadow: 0 2px 10px var(--sb-primary-glow) !important;
+    animation: sbPulseGlow 2.5s infinite !important;
+    border-radius: 8px !important;
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+}
+
+.sb-badge-admin {
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #FCA5A5 !important;
+    border: 1px solid rgba(239, 68, 68, 0.4) !important;
+    border-radius: 8px !important;
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+}
+
+@keyframes sbPulseGlow {
+    0%, 100% { box-shadow: 0 2px 10px var(--sb-primary-glow); }
+    50% { box-shadow: 0 2px 20px var(--sb-primary-glow); }
+}
+
+/* ========================================
+   SPECIAL NAV LINKS
+   ======================================== */
+
+.sb-nav-ai {
+    background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.06));
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.sb-nav-ai:hover {
+    border-color: var(--sb-primary);
+    box-shadow: 0 4px 20px var(--sb-primary-glow);
+}
+
+.sb-nav-admin {
+    display: none;
+    border: 1px dashed rgba(239, 68, 68, 0.35);
+}
+
+.sb-nav-admin.show {
+    display: flex;
+}
+
+.sb-nav-admin:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-style: solid;
+    border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.sb-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--sb-border);
+    background: var(--sb-bg);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Extra padding for safe area - always visible */
+    padding-bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 1rem));
+    margin-bottom: 0;
+    flex-shrink: 0;
+    /* Sticky to bottom */
+    margin-top: auto;
+}
+
+.sb-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.sb-user-avatar {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--sb-primary), var(--sb-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sb-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.sb-user-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--sb-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sb-user-plan {
+    font-size: 0.8rem;
+    color: var(--sb-primary);
+    font-weight: 500;
+}
+
+/* ========================================
+   LOGOUT BUTTON
+   ======================================== */
+
+.sb-logout {
+    width: 52px;
+    height: 52px;
+    background: var(--sb-glass);
+    border: 1px solid var(--sb-border);
+    border-radius: 12px;
+    color: var(--sb-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.sb-logout:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: var(--sb-danger);
+    color: var(--sb-danger);
+    transform: scale(1.05);
+}
+
+.sb-logout svg {
+    width: 26px;
+    height: 26px;
+}
+
+/* ========================================
+   MOBILE TOGGLE
+   ======================================== */
+
+.sb-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--sb-primary), var(--sb-secondary));
+    border: none;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99990;
+    box-shadow: 0 4px 25px var(--sb-primary-glow);
+    transition: all 0.25s ease;
+    padding: 0;
+}
+
+.sb-toggle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 35px var(--sb-primary-glow);
+}
+
+.sb-toggle:active {
+    transform: scale(0.95);
+}
+
+.sb-toggle svg {
+    width: 26px;
+    height: 26px;
+}
+
+/* ========================================
+   OVERLAY
+   ======================================== */
+
+.sb-overlay {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    right: 0;
+    bottom: -100px;
+    background: rgba(10, 10, 15, 0.92);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 99998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.sb-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ========================================
+   DESKTOP STYLES
+   ======================================== */
+
+@media (min-width: 769px) {
+    .floweco-sidebar {
+        transform: translateX(0);
+        width: var(--sb-width);
+        top: 0;
+        height: 100vh;
+        height: 100dvh;
+        padding-top: 0;
+    }
+
+    .sb-footer {
+        padding-bottom: 1rem;
+    }
+
+    .sb-toggle {
+        display: none !important;
+    }
+
+    .sb-close {
+        display: none !important;
+    }
+
+    .sb-overlay {
+        display: none !important;
+    }
+
+    /* Push content */
+    body {
+        margin-right: var(--sb-width) !important;
+    }
+}
+
+/* ========================================
+   SMALL MOBILE
+   ======================================== */
+
+@media (max-width: 360px) {
+    .floweco-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .sb-toggle {
+        width: 50px;
+        height: 50px;
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+}
+
+/* ========================================
+   iOS SAFE AREA FIX (Sidebar Only)
+   ======================================== */
+
+@supports (-webkit-touch-callout: none) {
+    .sb-footer {
+        padding-bottom: max(1.5rem, calc(env(safe-area-inset-bottom, 34px) + 0.75rem)) !important;
+    }
+    
+    .floweco-sidebar {
+        padding-bottom: env(safe-area-inset-bottom, 34px);
+    }
+}
+
+/* ========================================
+   SAFE OVERRIDES (No Elementor Conflicts)
+   ======================================== */
+
+.floweco-sidebar,
+.floweco-sidebar * {
+    box-sizing: border-box;
+}
+
+.floweco-sidebar a {
+    text-decoration: none;
+}
+
+.floweco-sidebar button {
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
+
+.floweco-sidebar p,
+.floweco-sidebar h1,
+.floweco-sidebar h2,
+.floweco-sidebar span {
+    margin: 0;
+    padding: 0;
+}

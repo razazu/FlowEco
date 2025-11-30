@@ -1,0 +1,906 @@
+/* ========================================
+   FlowEco Settings Page
+   ======================================== */
+
+.fe-settings {
+    --fe-primary: #667eea;
+    --fe-secondary: #764ba2;
+    --fe-success: #10B981;
+    --fe-warning: #F59E0B;
+    --fe-danger: #EF4444;
+    --fe-info: #3B82F6;
+    --fe-purple: #8B5CF6;
+    --fe-pink: #EC4899;
+    --fe-cyan: #06B6D4;
+    
+    --fe-bg: #0a0a0f;
+    --fe-card: rgba(255, 255, 255, 0.03);
+    --fe-card-hover: rgba(255, 255, 255, 0.06);
+    --fe-border: rgba(255, 255, 255, 0.08);
+    --fe-glass: rgba(255, 255, 255, 0.05);
+    
+    --fe-text: #F9FAFB;
+    --fe-text-secondary: #D1D5DB;
+    --fe-text-muted: #9CA3AF;
+    
+    --fe-radius: 20px;
+    --fe-radius-sm: 12px;
+    
+    direction: rtl;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--fe-text);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.fe-settings-header {
+    margin-bottom: 2rem;
+}
+
+.fe-settings-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--fe-primary), var(--fe-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.fe-title-icon {
+    font-size: 2.5rem;
+    -webkit-text-fill-color: initial;
+}
+
+.fe-settings-subtitle {
+    margin: 0.5rem 0 0 0;
+    color: var(--fe-text-muted);
+    font-size: 1rem;
+}
+
+/* ========================================
+   SETTINGS GRID
+   ======================================== */
+
+.fe-settings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .fe-settings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   SETTINGS CARDS
+   ======================================== */
+
+.fe-settings-card {
+    background: var(--fe-card);
+    border: 1px solid var(--fe-border);
+    border-radius: var(--fe-radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.fe-settings-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.fe-settings-card.wide {
+    grid-column: span 1;
+}
+
+@media (min-width: 768px) {
+    .fe-settings-card.wide {
+        grid-column: span 2;
+    }
+}
+
+.fe-settings-card.danger {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.fe-settings-card.danger .fe-card-header {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Card Header */
+.fe-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--fe-border);
+    background: var(--fe-glass);
+}
+
+.fe-card-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--fe-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fe-card-header h3 span {
+    font-size: 1.25rem;
+}
+
+/* Card Body */
+.fe-card-body {
+    padding: 1.5rem;
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+.fe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fe-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fe-form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--fe-text-secondary);
+}
+
+.fe-input,
+.fe-select {
+    background: var(--fe-glass);
+    border: 1px solid var(--fe-border);
+    border-radius: var(--fe-radius-sm);
+    padding: 0.85rem 1rem;
+    color: var(--fe-text);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.fe-input:focus,
+.fe-select:focus {
+    outline: none;
+    border-color: var(--fe-primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.fe-input::placeholder {
+    color: var(--fe-text-muted);
+}
+
+.fe-select {
+    cursor: pointer;
+}
+
+.fe-select option {
+    background: #1a1a2e;
+    color: var(--fe-text);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.fe-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--fe-radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.fe-btn-primary {
+    background: linear-gradient(135deg, var(--fe-primary), var(--fe-purple));
+    color: white;
+}
+
+.fe-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.fe-btn-secondary {
+    background: var(--fe-glass);
+    border: 1px solid var(--fe-border);
+    color: var(--fe-text);
+}
+
+.fe-btn-secondary:hover {
+    background: var(--fe-card-hover);
+    border-color: var(--fe-primary);
+}
+
+.fe-btn-danger {
+    background: linear-gradient(135deg, var(--fe-danger), #DC2626);
+    color: white;
+}
+
+.fe-btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(239, 68, 68, 0.4);
+}
+
+.fe-btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    background: var(--fe-glass);
+    border: 1px solid var(--fe-border);
+    color: var(--fe-text);
+}
+
+.fe-btn-small:hover {
+    background: var(--fe-primary);
+    border-color: var(--fe-primary);
+}
+
+/* ========================================
+   CARDS LIST (Credit Cards)
+   ======================================== */
+
+.fe-cards-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 576px) {
+    .fe-cards-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .fe-cards-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .fe-cards-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.fe-credit-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+    background: var(--fe-glass);
+    border-radius: var(--fe-radius-sm);
+    border: 1px solid var(--fe-border);
+    border-top: 4px solid var(--fe-primary);
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+.fe-credit-card:hover {
+    background: var(--fe-card-hover);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
+
+.fe-card-icon {
+    width: 55px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.fe-card-info {
+    text-align: center;
+}
+
+.fe-card-name {
+    font-weight: 600;
+    color: var(--fe-text);
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.fe-card-digits {
+    font-size: 0.85rem;
+    color: var(--fe-text-muted);
+    font-family: monospace;
+}
+
+.fe-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fe-credit-card:hover .fe-card-actions {
+    opacity: 1;
+}
+
+.fe-card-action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--fe-glass);
+    border: 1px solid var(--fe-border);
+    color: var(--fe-text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.fe-card-action-btn:hover {
+    background: var(--fe-primary);
+    border-color: var(--fe-primary);
+    color: white;
+}
+
+.fe-card-action-btn.delete:hover {
+    background: var(--fe-danger);
+    border-color: var(--fe-danger);
+}
+
+/* ========================================
+   CATEGORIES GRID
+   ======================================== */
+
+.fe-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 576px) {
+    .fe-categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .fe-categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .fe-categories-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .fe-categories-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.fe-category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+    background: var(--fe-glass);
+    border-radius: var(--fe-radius-sm);
+    border: 1px solid var(--fe-border);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.fe-category-item:hover {
+    background: var(--fe-card-hover);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
+
+.fe-category-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.fe-category-name {
+    font-weight: 500;
+    color: var(--fe-text);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.fe-category-type {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    background: var(--fe-glass);
+}
+
+.fe-category-type.expense {
+    color: var(--fe-danger);
+}
+
+.fe-category-type.income {
+    color: var(--fe-success);
+}
+
+.fe-category-actions {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    display: flex;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fe-category-item:hover .fe-category-actions {
+    opacity: 1;
+}
+
+.fe-category-action-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--fe-card);
+    border: 1px solid var(--fe-border);
+    color: var(--fe-text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.fe-category-action-btn:hover {
+    background: var(--fe-primary);
+    border-color: var(--fe-primary);
+    color: white;
+}
+
+.fe-category-action-btn.delete:hover {
+    background: var(--fe-danger);
+    border-color: var(--fe-danger);
+}
+
+/* ========================================
+   DATA MANAGEMENT
+   ======================================== */
+
+.fe-data-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fe-data-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--fe-glass);
+    border-radius: var(--fe-radius-sm);
+    gap: 1rem;
+}
+
+.fe-data-action.danger {
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.fe-data-info h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    color: var(--fe-text);
+}
+
+.fe-data-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--fe-text-muted);
+}
+
+/* ========================================
+   EMPTY STATE
+   ======================================== */
+
+.fe-empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--fe-text-muted);
+}
+
+.fe-empty-state span {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.fe-empty-state p {
+    margin: 0;
+}
+
+/* ========================================
+   MODALS
+   ======================================== */
+
+.fe-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.fe-modal-overlay.show {
+    display: flex;
+}
+
+.fe-modal {
+    background: linear-gradient(145deg, #1e1e35, #16162a);
+    border: 1px solid var(--fe-border);
+    border-radius: var(--fe-radius);
+    width: 100%;
+    max-width: 450px;
+    max-height: 90vh;
+    overflow: hidden;
+    animation: feModalSlide 0.3s ease;
+}
+
+.fe-modal.small {
+    max-width: 380px;
+}
+
+@keyframes feModalSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fe-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--fe-border);
+    background: var(--fe-glass);
+}
+
+.fe-modal-header.danger {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.fe-modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--fe-text);
+}
+
+.fe-modal-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: var(--fe-text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.fe-modal-close:hover {
+    background: var(--fe-glass);
+    color: var(--fe-text);
+}
+
+.fe-modal-body {
+    padding: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.fe-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--fe-border);
+    background: var(--fe-glass);
+}
+
+.fe-warning-text {
+    color: var(--fe-danger);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   COLOR & ICON PICKERS
+   ======================================== */
+
+.fe-color-picker,
+.fe-icon-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.fe-color-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fe-color-btn:hover,
+.fe-color-btn.active {
+    border-color: white;
+    transform: scale(1.1);
+}
+
+.fe-icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: var(--fe-glass);
+    border: 2px solid var(--fe-border);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.fe-icon-btn:hover,
+.fe-icon-btn.active {
+    border-color: var(--fe-primary);
+    background: rgba(102, 126, 234, 0.2);
+    transform: scale(1.1);
+}
+
+/* ========================================
+   TOAST MESSAGES
+   ======================================== */
+
+.fe-toast-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.fe-toast {
+    padding: 1rem 1.5rem;
+    border-radius: var(--fe-radius-sm);
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: feToastIn 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes feToastIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fe-toast.success {
+    background: linear-gradient(135deg, var(--fe-success), #059669);
+}
+
+.fe-toast.error {
+    background: linear-gradient(135deg, var(--fe-danger), #DC2626);
+}
+
+.fe-toast.warning {
+    background: linear-gradient(135deg, var(--fe-warning), #D97706);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.fe-settings-footer {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--fe-card);
+    border: 1px solid var(--fe-border);
+    border-radius: var(--fe-radius);
+    text-align: center;
+}
+
+.fe-footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.fe-footer-logo {
+    font-size: 2rem;
+}
+
+.fe-footer-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--fe-primary), var(--fe-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.fe-footer-version {
+    font-size: 0.8rem;
+    color: var(--fe-text-muted);
+    background: var(--fe-glass);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.fe-footer-contact {
+    margin-bottom: 1.5rem;
+}
+
+.fe-footer-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fe-text-secondary);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.fe-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.fe-footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--fe-glass);
+    border: 1px solid var(--fe-border);
+    border-radius: var(--fe-radius-sm);
+    color: var(--fe-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.fe-footer-link:hover {
+    background: var(--fe-card-hover);
+    border-color: var(--fe-primary);
+    transform: translateY(-2px);
+}
+
+.fe-footer-link.whatsapp:hover {
+    border-color: #25D366;
+    color: #25D366;
+}
+
+.fe-footer-link span {
+    font-size: 1.1rem;
+}
+
+.fe-footer-copy {
+    font-size: 0.85rem;
+    color: var(--fe-text-muted);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--fe-border);
+}
+
+.fe-footer-copy a {
+    color: var(--fe-primary);
+    text-decoration: none;
+}
+
+.fe-footer-copy a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .fe-settings {
+        padding: 1rem;
+    }
+    
+    .fe-settings-title {
+        font-size: 1.5rem;
+    }
+    
+    .fe-title-icon {
+        font-size: 2rem;
+    }
+    
+    .fe-card-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .fe-credit-card {
+        flex-wrap: wrap;
+    }
+    
+    .fe-data-action {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .fe-modal {
+        margin: 1rem;
+    }
+}

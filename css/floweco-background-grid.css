@@ -1,0 +1,36 @@
+.floweco-dark-grid {
+    position: fixed;
+    top: -100px;
+    left: 0;
+    right: 0;
+    bottom: -100px;
+    z-index: -1;
+    background-color: #0a0e1a;
+    background-image:
+        linear-gradient(rgba(16,185,129,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,185,129,0.1) 1px, transparent 1px),
+        linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.dark-grid-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(16,185,129,0.05) 0%, transparent 50%);
+}
+
+/* Fix Safari bottom bar white flash */
+html {
+    background-color: #0a0e1a;
+    overscroll-behavior: none;
+}
+
+body {
+    background: transparent;
+    overscroll-behavior: none;
+}

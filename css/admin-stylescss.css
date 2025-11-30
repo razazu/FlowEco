@@ -1,0 +1,1338 @@
+/* ========================================
+   FlowEco Admin Panel v2 - Mobile First
+   ======================================== */
+
+.admin-panel-v2 {
+    --adm-primary: #667eea;
+    --adm-success: #10B981;
+    --adm-warning: #F59E0B;
+    --adm-danger: #EF4444;
+    --adm-info: #3B82F6;
+    --adm-purple: #8B5CF6;
+    --adm-pink: #EC4899;
+    --adm-cyan: #06B6D4;
+    
+    --adm-bg: #0a0a0f;
+    --adm-card: rgba(255, 255, 255, 0.03);
+    --adm-card-hover: rgba(255, 255, 255, 0.06);
+    --adm-border: rgba(255, 255, 255, 0.08);
+    --adm-glass: rgba(255, 255, 255, 0.05);
+    
+    --adm-text: #F9FAFB;
+    --adm-text-secondary: #D1D5DB;
+    --adm-text-muted: #9CA3AF;
+    
+    --adm-radius: 16px;
+    --adm-radius-sm: 10px;
+    
+    direction: rtl;
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--adm-text);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.adm-header {
+    margin-bottom: 1.5rem;
+}
+
+.adm-header-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.adm-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, var(--adm-primary), var(--adm-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.adm-subtitle {
+    font-size: 0.9rem;
+    color: var(--adm-text-muted);
+    margin: 0.25rem 0 0 0;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.adm-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: var(--adm-radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.adm-btn-primary {
+    background: linear-gradient(135deg, var(--adm-primary), var(--adm-purple));
+    color: white;
+}
+
+.adm-btn-success {
+    background: linear-gradient(135deg, var(--adm-success), #059669);
+    color: white;
+}
+
+.adm-btn-warning {
+    background: linear-gradient(135deg, var(--adm-purple), var(--adm-pink));
+    color: white;
+}
+
+.adm-btn-danger {
+    background: linear-gradient(135deg, var(--adm-danger), #DC2626);
+    color: white;
+}
+
+.adm-btn-save {
+    background: linear-gradient(135deg, var(--adm-primary), var(--adm-purple));
+    color: white;
+}
+
+.adm-btn-cancel {
+    background: var(--adm-glass);
+    border: 1px solid var(--adm-border);
+    color: var(--adm-text);
+}
+
+.adm-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.adm-btn-link {
+    background: none;
+    border: none;
+    color: var(--adm-purple);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+}
+
+.adm-btn-link:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   STATS GRID
+   ======================================== */
+
+.adm-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.adm-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--adm-card);
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.adm-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 3px;
+    background: var(--card-color);
+}
+
+.adm-stat-card:hover {
+    background: var(--adm-card-hover);
+    transform: translateY(-2px);
+}
+
+.adm-stat-icon {
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--adm-glass);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.adm-stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.adm-stat-label {
+    font-size: 0.7rem;
+    color: var(--adm-text-muted);
+    text-transform: uppercase;
+}
+
+.adm-stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--adm-text);
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+
+.adm-section {
+    margin-bottom: 1.5rem;
+}
+
+.adm-section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.adm-section-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--adm-text);
+}
+
+/* ========================================
+   FILTERS
+   ======================================== */
+
+.adm-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.adm-search,
+.adm-select {
+    padding: 0.6rem 0.9rem;
+    background: var(--adm-glass);
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius-sm);
+    color: var(--adm-text);
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.adm-search {
+    flex: 1;
+    min-width: 150px;
+}
+
+.adm-select {
+    min-width: 120px;
+}
+
+.adm-search:focus,
+.adm-select:focus {
+    outline: none;
+    border-color: var(--adm-primary);
+}
+
+.adm-select option {
+    background: #1a1a2e;
+    color: var(--adm-text);
+}
+
+/* ========================================
+   TABLE
+   ======================================== */
+
+.adm-table-container {
+    background: var(--adm-card);
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius);
+    overflow-x: auto;
+}
+
+.adm-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.adm-table thead {
+    background: var(--adm-glass);
+}
+
+.adm-table th {
+    padding: 0.9rem 1rem;
+    text-align: right;
+    font-weight: 600;
+    color: var(--adm-text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--adm-border);
+}
+
+.adm-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    color: var(--adm-text);
+    font-size: 0.9rem;
+}
+
+.adm-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.adm-table tbody tr:hover {
+    background: var(--adm-glass);
+}
+
+.adm-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--adm-text-muted);
+}
+
+/* User Info Cell */
+.adm-user-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.adm-user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--adm-primary), var(--adm-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.adm-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.adm-user-name {
+    font-weight: 600;
+    color: var(--adm-text);
+}
+
+.adm-user-email {
+    font-size: 0.8rem;
+    color: var(--adm-text-muted);
+}
+
+/* Badges */
+.adm-badge {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.adm-badge-free {
+    background: rgba(107, 114, 128, 0.2);
+    color: #9CA3AF;
+}
+
+.adm-badge-trial {
+    background: rgba(245, 158, 11, 0.2);
+    color: #F59E0B;
+}
+
+.adm-badge-pro {
+    background: rgba(139, 92, 246, 0.2);
+    color: #A78BFA;
+}
+
+.adm-badge-admin {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+}
+
+.adm-badge-user {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60A5FA;
+}
+
+.adm-badge-bug {
+    background: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+}
+
+.adm-badge-feature {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+.adm-badge-question {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60A5FA;
+}
+
+.adm-badge-new {
+    background: rgba(245, 158, 11, 0.2);
+    color: #F59E0B;
+}
+
+.adm-badge-in-progress {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60A5FA;
+}
+
+.adm-badge-resolved {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+}
+
+/* Action Buttons */
+.adm-actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.adm-action-btn {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--adm-glass);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.adm-action-btn:hover {
+    background: var(--adm-card-hover);
+    transform: scale(1.1);
+}
+
+/* Pagination */
+.adm-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.adm-page-btn {
+    padding: 0.5rem 0.9rem;
+    background: var(--adm-glass);
+    border: 1px solid var(--adm-border);
+    border-radius: 8px;
+    color: var(--adm-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.adm-page-btn:hover:not(:disabled) {
+    background: var(--adm-card-hover);
+}
+
+.adm-page-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.adm-page-btn.active {
+    background: var(--adm-primary);
+    border-color: var(--adm-primary);
+}
+
+.adm-page-info {
+    font-size: 0.85rem;
+    color: var(--adm-text-muted);
+}
+
+/* ========================================
+   ACCORDION
+   ======================================== */
+
+.adm-accordion {
+    background: var(--adm-card);
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius);
+    overflow: hidden;
+}
+
+.adm-accordion-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: transparent;
+    border: none;
+    color: var(--adm-text);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.adm-accordion-toggle:hover {
+    background: var(--adm-glass);
+}
+
+.adm-accordion-icon {
+    font-size: 0.8rem;
+    color: var(--adm-purple);
+    transition: transform 0.3s ease;
+}
+
+.adm-accordion-icon.open {
+    transform: rotate(180deg);
+}
+
+.adm-accordion-content {
+    display: none;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--adm-border);
+}
+
+.adm-accordion-content.open {
+    display: block;
+}
+
+/* ========================================
+   MODALS
+   ======================================== */
+
+.adm-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.adm-modal-overlay.show {
+    display: flex;
+    animation: admFadeIn 0.2s ease;
+}
+
+.adm-modal {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(145deg, #1a1a2e, #16162a);
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius);
+    margin: auto;
+    animation: admSlideUp 0.3s ease;
+}
+
+.adm-modal-lg {
+    max-width: 800px;
+}
+
+@keyframes admFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes admSlideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.adm-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--adm-border);
+}
+
+.adm-modal-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--adm-text);
+}
+
+.adm-modal-header-success {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), transparent);
+}
+
+.adm-modal-header-danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), transparent);
+}
+
+.adm-modal-close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--adm-glass);
+    border: none;
+    border-radius: 50%;
+    color: var(--adm-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.adm-modal-close:hover {
+    background: var(--adm-danger);
+}
+
+.adm-modal-body {
+    padding: 1.25rem;
+}
+
+.adm-modal-footer {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border-top: 1px solid var(--adm-border);
+}
+
+.adm-modal-footer .adm-btn {
+    flex: 1;
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+.adm-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.adm-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.adm-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.adm-form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--adm-text-secondary);
+}
+
+.adm-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--adm-glass);
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius-sm);
+    color: var(--adm-text);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.adm-input:focus {
+    outline: none;
+    border-color: var(--adm-primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.adm-input option {
+    background: #1a1a2e;
+    color: var(--adm-text);
+}
+
+textarea.adm-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Checkbox */
+.adm-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.adm-checkbox input {
+    width: 20px;
+    height: 20px;
+    margin-top: 0.1rem;
+    accent-color: var(--adm-danger);
+}
+
+.adm-checkbox span {
+    font-size: 0.9rem;
+    color: var(--adm-text-secondary);
+    line-height: 1.5;
+}
+
+/* Warning/Danger Boxes */
+.adm-warning-box {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: var(--adm-radius-sm);
+    padding: 1rem;
+    color: #F59E0B;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.adm-danger-box {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--adm-radius-sm);
+    padding: 1rem;
+    color: #EF4444;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.adm-user-info-box {
+    background: var(--adm-glass);
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius-sm);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   TOAST
+   ======================================== */
+
+.adm-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #1a1a2e, #16162a);
+    border: 1px solid var(--adm-primary);
+    border-radius: var(--adm-radius);
+    color: var(--adm-text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 100000;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.adm-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.adm-toast.success {
+    border-color: var(--adm-success);
+}
+
+.adm-toast.error {
+    border-color: var(--adm-danger);
+}
+
+/* ========================================
+   VIEW USER STATS
+   ======================================== */
+
+.adm-view-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--adm-glass);
+    border-radius: var(--adm-radius-sm);
+    margin-bottom: 1.5rem;
+}
+
+.adm-view-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--adm-primary), var(--adm-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.adm-view-info h3 {
+    margin: 0 0 0.25rem 0;
+    color: var(--adm-text);
+}
+
+.adm-view-info p {
+    margin: 0;
+    color: var(--adm-text-muted);
+    font-size: 0.9rem;
+}
+
+.adm-view-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.adm-view-stat {
+    background: var(--adm-glass);
+    border: 1px solid var(--adm-border);
+    border-radius: var(--adm-radius-sm);
+    padding: 1rem;
+    text-align: center;
+}
+
+.adm-view-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--adm-text);
+}
+
+.adm-view-stat-label {
+    font-size: 0.75rem;
+    color: var(--adm-text-muted);
+}
+
+.adm-view-section h4 {
+    font-size: 1rem;
+    margin: 0 0 0.75rem 0;
+    color: var(--adm-text);
+}
+
+.adm-view-empty {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--adm-text-muted);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   DESKTOP STYLES
+   ======================================== */
+
+@media (min-width: 768px) {
+    .admin-panel-v2 {
+        padding: 2rem;
+    }
+
+    .adm-header-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .adm-title {
+        font-size: 2rem;
+    }
+
+    .adm-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .adm-stat-value {
+        font-size: 1.5rem;
+    }
+
+    .adm-section-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .adm-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .adm-stats-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* ========================================
+   MESSAGE CELL TRUNCATE
+   ======================================== */
+
+.adm-message-cell {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ========================================
+   MODAL FIXES - ADD TO END OF FILE
+   ======================================== */
+
+/* Better Modal Background */
+.adm-modal {
+    background: linear-gradient(145deg, #252540, #1e1e35) !important;
+    border: 2px solid rgba(102, 126, 234, 0.3) !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Modal Header */
+.adm-modal-header {
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.adm-modal-header h2 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Labels - More Visible */
+.adm-form-group label {
+    color: #e0e0e0 !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 8px !important;
+}
+
+/* Form Inputs - Better Contrast */
+.adm-input {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    padding: 0.85rem 1rem !important;
+}
+
+.adm-input:focus {
+    border-color: var(--adm-primary) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+.adm-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Select Dropdowns */
+.adm-input option,
+.adm-select option {
+    background: #252540 !important;
+    color: #ffffff !important;
+}
+
+/* Warning Box - More Visible */
+.adm-warning-box {
+    background: rgba(245, 158, 11, 0.2) !important;
+    border: 2px solid rgba(245, 158, 11, 0.5) !important;
+    color: #fcd34d !important;
+    font-weight: 600 !important;
+    padding: 1rem 1.25rem !important;
+}
+
+/* Danger Box - More Visible */
+.adm-danger-box {
+    background: rgba(239, 68, 68, 0.2) !important;
+    border: 2px solid rgba(239, 68, 68, 0.5) !important;
+    color: #fca5a5 !important;
+    font-weight: 600 !important;
+    padding: 1rem 1.25rem !important;
+}
+
+/* User Info Box in Modals */
+.adm-user-info-box {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    padding: 1.25rem !important;
+}
+
+.adm-user-info-box h4,
+.adm-user-info-box strong {
+    color: #ffffff !important;
+}
+
+.adm-user-info-box p,
+.adm-user-info-box span {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Modal Footer */
+.adm-modal-footer {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 1.25rem !important;
+}
+
+/* Buttons in Modal */
+.adm-modal-footer .adm-btn {
+    padding: 0.85rem 1.5rem !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+}
+
+.adm-btn-cancel {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+}
+
+.adm-btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.adm-btn-save {
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+}
+
+.adm-btn-danger {
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* View User Modal Stats */
+.adm-view-header {
+    background: rgba(102, 126, 234, 0.15) !important;
+    border: 1px solid rgba(102, 126, 234, 0.3) !important;
+}
+
+.adm-view-info h3 {
+    color: #ffffff !important;
+    font-size: 1.3rem !important;
+}
+
+.adm-view-info p {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.adm-view-stat {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.adm-view-stat-value {
+    color: #a78bfa !important;
+}
+
+.adm-view-stat-label {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Section Titles in View Modal */
+.adm-view-section h4 {
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem !important;
+}
+
+/* Checkbox */
+.adm-checkbox span {
+    color: #e0e0e0 !important;
+}
+
+/* Close Button */
+.adm-modal-close {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+.adm-modal-close:hover {
+    background: var(--adm-danger) !important;
+    transform: rotate(90deg);
+}
+/* ========================================
+   MODAL FIXES - ADD TO END OF FILE
+   ======================================== */
+
+/* Better Modal Background */
+.adm-modal {
+    background: linear-gradient(145deg, #252540, #1e1e35) !important;
+    border: 2px solid rgba(102, 126, 234, 0.3) !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Modal Header */
+.adm-modal-header {
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.adm-modal-header h2 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Labels - More Visible */
+.adm-form-group label {
+    color: #e0e0e0 !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 8px !important;
+}
+
+/* Form Inputs - Better Contrast */
+.adm-input {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    padding: 0.85rem 1rem !important;
+}
+
+.adm-input:focus {
+    border-color: var(--adm-primary) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+.adm-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Select Dropdowns */
+.adm-input option,
+.adm-select option {
+    background: #252540 !important;
+    color: #ffffff !important;
+}
+
+/* Warning Box - More Visible */
+.adm-warning-box {
+    background: rgba(245, 158, 11, 0.2) !important;
+    border: 2px solid rgba(245, 158, 11, 0.5) !important;
+    color: #fcd34d !important;
+    font-weight: 600 !important;
+    padding: 1rem 1.25rem !important;
+}
+
+/* Danger Box - More Visible */
+.adm-danger-box {
+    background: rgba(239, 68, 68, 0.2) !important;
+    border: 2px solid rgba(239, 68, 68, 0.5) !important;
+    color: #fca5a5 !important;
+    font-weight: 600 !important;
+    padding: 1rem 1.25rem !important;
+}
+
+/* User Info Box in Modals */
+.adm-user-info-box {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    padding: 1.25rem !important;
+}
+
+.adm-user-info-box h4,
+.adm-user-info-box strong {
+    color: #ffffff !important;
+}
+
+.adm-user-info-box p,
+.adm-user-info-box span {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Modal Footer */
+.adm-modal-footer {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 1.25rem !important;
+}
+
+/* Buttons in Modal */
+.adm-modal-footer .adm-btn {
+    padding: 0.85rem 1.5rem !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+}
+
+.adm-btn-cancel {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+}
+
+.adm-btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.adm-btn-save {
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+}
+
+.adm-btn-danger {
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* View User Modal Stats */
+.adm-view-header {
+    background: rgba(102, 126, 234, 0.15) !important;
+    border: 1px solid rgba(102, 126, 234, 0.3) !important;
+}
+
+.adm-view-info h3 {
+    color: #ffffff !important;
+    font-size: 1.3rem !important;
+}
+
+.adm-view-info p {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.adm-view-stat {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.adm-view-stat-value {
+    color: #a78bfa !important;
+}
+
+.adm-view-stat-label {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Section Titles in View Modal */
+.adm-view-section h4 {
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem !important;
+}
+
+/* Checkbox */
+.adm-checkbox span {
+    color: #e0e0e0 !important;
+}
+
+/* Close Button */
+.adm-modal-close {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+.adm-modal-close:hover {
+    background: var(--adm-danger) !important;
+    transform: rotate(90deg);
+}
+
+/* ========================================
+   ACTIVITY DETAILS STYLES
+   ======================================== */
+
+.adm-activity-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.adm-activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.adm-activity-label {
+    color: #D1D5DB !important;
+    font-size: 0.9rem;
+}
+
+.adm-activity-value {
+    font-weight: 600;
+    color: #F9FAFB !important;
+    font-size: 0.95rem;
+}
+
+/* Activity Levels */
+.adm-level-very-active {
+    color: #10B981 !important;
+    background: rgba(16, 185, 129, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.adm-level-active {
+    color: #3B82F6 !important;
+    background: rgba(59, 130, 246, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.adm-level-partial {
+    color: #F59E0B !important;
+    background: rgba(245, 158, 11, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.adm-level-started {
+    color: #8B5CF6 !important;
+    background: rgba(139, 92, 246, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.adm-level-inactive {
+    color: #9CA3AF !important;
+    background: rgba(156, 163, 175, 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* Badge for Admin */
+.adm-badge-admin {
+    background: linear-gradient(135deg, #F59E0B, #D97706) !important;
+    color: white !important;
+}
