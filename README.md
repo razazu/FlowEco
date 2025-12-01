@@ -1,37 +1,37 @@
-# 💰 FlowEco - ניהול פיננסי חכם
+# 💰 FlowEco - Smart Financial Management
 
 <div align="center">
 
 ![FlowEco Logo](https://img.shields.io/badge/FlowEco-v2.0_BETA-10B981?style=for-the-badge)
 
-**אפליקציית ניהול פיננסי אישי בעברית** 🇮🇱
+**Personal Finance Management App for Hebrew Speakers** 🇮🇱
 
 [![WordPress](https://img.shields.io/badge/WordPress-21759B?style=flat-square&logo=wordpress&logoColor=white)](https://wordpress.org/)
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)](https://openai.com/)
 
-[🌐 Demo](https://flowraz.io) · [🐛 דיווח באג](https://github.com/YOUR_USERNAME/floweco/issues) · [💡 בקשת פיצ'ר](https://github.com/YOUR_USERNAME/floweco/issues)
+[🌐 Demo](https://flowraz.io) · [🐛 Report Bug](https://github.com/razazu/FlowEco/issues) · [💡 Feature Request](https://github.com/razazu/FlowEco/issues)
 
 </div>
 
 ---
 
-## ✨ פיצ'רים
+## ✨ Features
 
-- 📊 **דשבורד חכם** - סקירה מלאה של המצב הפיננסי
-- 💸 **ניהול הוצאות** - מעקב הוצאות עם קטגוריות, תשלומים, הלוואות
-- 💰 **ניהול הכנסות** - מעקב הכנסות קבועות וחד-פעמיות
-- 🎯 **תקציב חודשי** - הגדרת תקציב לפי קטגוריה עם התראות
-- 🤖 **כלכלן חכם AI** - ייעוץ פיננסי מבוסס בינה מלאכותית
-- 📈 **דוחות וגרפים** - 7 סוגי גרפים ותובנות חכמות
-- 💳 **ניהול כרטיסי אשראי** - מעקב הוצאות לפי כרטיס
-- 🔄 **הוצאות/הכנסות קבועות** - חיזוי אוטומטי לחודשים הבאים
-- 🌙 **מצב כהה** - עיצוב מודרני ונעים לעיניים
-- 📱 **רספונסיבי** - תמיכה מלאה במובייל
+- 📊 **Smart Dashboard** - Complete financial overview
+- 💸 **Expense Management** - Track expenses with categories, payments & loans
+- 💰 **Income Management** - Track recurring and one-time income
+- 🎯 **Monthly Budgets** - Set budgets per category with alerts
+- 🤖 **AI Financial Advisor** - AI-powered financial advice using OpenAI
+- 📈 **Reports & Charts** - 7 chart types with smart insights
+- ⚙️ **Advanced Settings** - Full customization
+- 👥 **Admin Panel** - User and system management
+- 📱 **PWA Support** - Install as mobile app (Android + iOS)
+- 🌙 **Dark Mode** - Modern and eye-friendly design
 
 ---
 
-## 🛠️ טכנולוגיות
+## 🛠️ Tech Stack
 
 | Frontend | Backend | Database | AI |
 |----------|---------|----------|-----|
@@ -41,135 +41,110 @@
 
 ---
 
-## 📁 מבנה הפרויקט
+## 📁 Project Structure
 
 ```
 floweco/
-├── 📂 css/              # קבצי עיצוב
-│   ├── sidebar-styles.css
-│   ├── dashboard-styles.css
-│   ├── expenses-styles.css
-│   ├── incomes-styles.css
+├── 📂 css/                              # Styles (11 files)
+│   ├── floweco-global-font.css
+│   ├── floweco-background-grid.css
+│   ├── floweco-dashboard-styles-v2.css
+│   ├── floweco-expenses-styles-v2.css
+│   ├── floweco-incomes-styles-v2.css
 │   ├── budgets-styles.css
-│   ├── reports-styles.css
-│   ├── settings-styles.css
+│   ├── floweco-reports-styles.css
+│   ├── floweco-settings-styles.css
 │   ├── admin-styles.css
-│   └── ai-advisor-styles.css
+│   ├── ai-advisor-styles.css
+│   └── sidebar-styles.css
 │
-├── 📂 js/               # לוגיקה
-│   ├── core-config.js
+├── 📂 js/                               # Logic (11 files)
+│   ├── floweco-core-config.js
 │   ├── core-auth-guard.js
-│   ├── sidebar-logic.js
-│   ├── dashboard-logic.js
-│   ├── expenses-logic.js
-│   ├── incomes-logic.js
+│   ├── floweco-dashboard-core-v2.js
+│   ├── floweco-expenses-core-v2.js
+│   ├── floweco-incomes-core-v2.js
 │   ├── budgets-logic.js
-│   ├── reports-logic.js
-│   ├── settings-logic.js
+│   ├── floweco-reports-logic.js
+│   ├── floweco-settings-logic.js
 │   ├── admin-logic.js
-│   └── ai-advisor-logic.js
+│   ├── ai-advisor-logic.js
+│   └── sidebar-logic.js
 │
-├── 📂 php/              # HTML & Shortcodes
-│   ├── sidebar-html.php
-│   ├── dashboard.php
-│   ├── expenses.php
-│   ├── incomes.php
+├── 📂 php/                              # HTML & Shortcodes (12 files)
+│   ├── floweco-manifest.php
+│   ├── floweco-login.php
+│   ├── floweco-register.php
+│   ├── floweco-dashboard-v2.php
+│   ├── floweco-expenses-v2.php
+│   ├── floweco-incomes-v2.php
 │   ├── budgets.php
-│   ├── reports.php
-│   ├── settings.php
+│   ├── floweco-reports-html.php
+│   ├── floweco-settings-html.php
 │   ├── admin.php
 │   ├── ai-advisor.php
-│   ├── login.php
-│   └── register.php
+│   └── sidebar.php
 │
-├── 📂 worker/           # Cloudflare Worker API
-│   └── floweco-worker.js
+├── 📂 html/                             # PWA Templates (3 files)
+│   ├── floweco-pwa-meta.html
+│   ├── floweco-pwa-install.html
+│   └── floweco-mini-header.html
 │
 └── 📄 README.md
 ```
 
----
-
-## 🚀 התקנה
-
-### דרישות מקדימות
-- WordPress עם Elementor
-- WPCodeBox (או תוסף snippets אחר)
-- חשבון Cloudflare (Workers + D1)
-- מפתח OpenAI API (לכלכלן החכם)
-
-### שלבים
-
-1. **הגדרת Cloudflare Worker:**
-   ```bash
-   # העלה את worker/floweco-worker.js ל-Cloudflare Workers
-   # צור D1 Database בשם floweco-db
-   # הגדר Environment Variables: JWT_SECRET, OPENAI_API_KEY
-   ```
-
-2. **ייבוא ל-WPCodeBox:**
-   - העלה את כל קבצי ה-PHP, CSS, JS לתיקיות מתאימות
-   - או השתמש ב-Import מקובץ JSON
-
-3. **יצירת עמודים ב-WordPress:**
-   - צור עמודים עם Shortcodes מתאימים
-   - `[floweco_dashboard]`, `[floweco_expenses]`, וכו'
+**Total: 37 files**
 
 ---
 
 ## 📡 API Endpoints
 
-| Method | Endpoint | תיאור |
-|--------|----------|-------|
-| POST | `/api/register` | הרשמה |
-| POST | `/api/login` | התחברות |
-| GET | `/api/expenses` | קבלת הוצאות |
-| POST | `/api/expenses` | הוספת הוצאה |
-| PUT | `/api/expenses/:id` | עדכון הוצאה |
-| DELETE | `/api/expenses/:id` | מחיקת הוצאה |
-| GET | `/api/incomes` | קבלת הכנסות |
-| GET | `/api/budgets` | קבלת תקציבים |
-| GET | `/api/cards` | קבלת כרטיסים |
-| GET | `/api/categories` | קבלת קטגוריות |
-| POST | `/api/ai/advice` | ייעוץ AI |
-
----
-
-## 📸 צילומי מסך
-
-> *בקרוב...*
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/register` | User registration |
+| POST | `/api/login` | User login |
+| GET | `/api/expenses` | Get expenses |
+| POST | `/api/expenses` | Add expense |
+| PUT | `/api/expenses/:id` | Update expense |
+| DELETE | `/api/expenses/:id` | Delete expense |
+| GET | `/api/incomes` | Get incomes |
+| GET | `/api/budgets` | Get budgets |
+| GET | `/api/cards` | Get credit cards |
+| GET | `/api/categories` | Get categories |
+| POST | `/api/ai/advice` | AI financial advice |
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] מערכת הוצאות מלאה
-- [x] מערכת הכנסות
-- [x] ניהול תקציב
-- [x] כלכלן חכם AI
-- [x] דוחות וגרפים
-- [x] ניהול קטגוריות
-- [ ] ייצוא PDF/Excel
-- [ ] התראות Push
-- [ ] סנכרון בנקים
-- [ ] אפליקציית מובייל
+- [x] Full expense management system
+- [x] Income management
+- [x] Budget management
+- [x] AI Financial Advisor
+- [x] Reports & Charts
+- [x] Category management
+- [x] Advanced settings
+- [x] Admin panel
+- [x] PWA Support
+- [ ] PDF/Excel export
+- [ ] Push notifications
 
 ---
 
-## 🤝 תרומה
+## 📅 Last Updated
 
-תרומות מתקבלות בברכה! אנא פתחו Issue או Pull Request.
+**December 1, 2025**
 
 ---
 
-## 📄 רישיון
+## 📄 License
 
-MIT License - ראה קובץ [LICENSE](LICENSE) לפרטים.
+MIT License - See [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
 
-**נבנה עם ❤️ על ידי [FlowRaz](https://flowraz.io)**
+**Built with ❤️ by [FlowRaz](https://flowraz.io)**
 
 </div>
