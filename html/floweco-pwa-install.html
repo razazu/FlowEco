@@ -1,0 +1,576 @@
+<!-- FlowEco PWA Install Prompt v1.0 -->
+<!-- Shows install button for Android, visual guide for iOS -->
+
+<!-- Install Popup -->
+<div class="feco-install-popup" id="fecoInstallPopup">
+    <div class="feco-install-card">
+        
+        <!-- Close Button -->
+        <button class="feco-install-close" id="fecoInstallClose" aria-label="סגור">×</button>
+        
+        <!-- Header -->
+        <div class="feco-install-header">
+            <div class="feco-install-icon">
+                <img src="/wp-content/uploads/2025/11/floweco-icon-192.png" alt="FlowEco" onerror="this.style.display='none'">
+            </div>
+            <div class="feco-install-title">
+                <h3>התקן את FlowEco</h3>
+                <p>גישה מהירה מהמסך הראשי</p>
+            </div>
+        </div>
+        
+        <!-- Android Content (Install Button) -->
+        <div class="feco-install-android" id="fecoInstallAndroid">
+            <p class="feco-install-desc">התקן את האפליקציה לחוויה מהירה ונוחה יותר</p>
+            <button class="feco-install-btn" id="fecoInstallBtn">
+                <span>התקן עכשיו</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- iOS Content (Instructions) -->
+        <div class="feco-install-ios" id="fecoInstallIOS">
+            <p class="feco-install-desc">להתקנה, בצע את השלבים הבאים:</p>
+            
+            <div class="feco-install-steps">
+                
+                <!-- Step 1 -->
+                <div class="feco-step">
+                    <div class="feco-step-num">1</div>
+                    <div class="feco-step-content">
+                        <p>לחץ על כפתור <strong>השיתוף</strong> בתחתית המסך</p>
+                        <div class="feco-step-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="1.5">
+                                <rect x="4" y="8" width="16" height="14" rx="2"/>
+                                <path d="M12 2v12"/>
+                                <path d="M8 6l4-4 4 4"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="feco-step">
+                    <div class="feco-step-num">2</div>
+                    <div class="feco-step-content">
+                        <p>גלול למטה ולחץ על <strong>הוסף למסך הבית</strong></p>
+                        <div class="feco-step-visual">
+                            <div class="feco-ios-button">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <path d="M12 8v8"/>
+                                    <path d="M8 12h8"/>
+                                </svg>
+                                <span>הוסף למסך הבית</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="feco-step">
+                    <div class="feco-step-num">3</div>
+                    <div class="feco-step-content">
+                        <p>לחץ <strong>הוסף</strong> בפינה הימנית העליונה</p>
+                        <div class="feco-step-visual">
+                            <span class="feco-ios-add-btn">הוסף</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <p class="feco-install-tip">💡 לא מוצא? גלול למטה או לחץ "עוד" בתפריט השיתוף</p>
+        </div>
+        
+        <!-- Later Button -->
+        <button class="feco-install-later" id="fecoInstallLater">אולי אחר כך</button>
+        
+    </div>
+</div>
+
+<!-- Settings Link (for menu) -->
+<a href="#" class="feco-install-link" id="fecoInstallLink" style="display:none;">
+    <span class="feco-nav-icon">📲</span>
+    <span class="feco-nav-text">התקן כאפליקציה</span>
+</a>
+
+<style>
+/* ========================================
+   PWA INSTALL POPUP
+   ======================================== */
+
+.feco-install-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    direction: rtl;
+    font-family: 'Heebo', -apple-system, sans-serif;
+}
+
+.feco-install-popup.show {
+    display: flex;
+}
+
+/* Card */
+.feco-install-card {
+    background: linear-gradient(145deg, #1a1f2e, #0f141e);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 360px;
+    padding: 28px 24px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Close Button */
+.feco-install-close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.feco-install-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+}
+
+/* Header */
+.feco-install-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.feco-install-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #10B981, #3B82F6);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.feco-install-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feco-install-title h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.feco-install-title p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Description */
+.feco-install-desc {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.95rem;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+/* ========================================
+   ANDROID - Install Button
+   ======================================== */
+
+.feco-install-android {
+    display: none;
+}
+
+.feco-install-btn {
+    width: 100%;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #10B981, #059669);
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+}
+
+.feco-install-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+}
+
+.feco-install-btn:active {
+    transform: scale(0.98);
+}
+
+/* ========================================
+   iOS - Instructions
+   ======================================== */
+
+.feco-install-ios {
+    display: none;
+}
+
+.feco-install-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.feco-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.feco-step-num {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.feco-step-content {
+    flex: 1;
+}
+
+.feco-step-content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+}
+
+.feco-step-content strong {
+    color: #fff;
+}
+
+.feco-step-icon {
+    display: inline-flex;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+}
+
+.feco-step-visual {
+    display: flex;
+    align-items: center;
+}
+
+.feco-ios-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+}
+
+.feco-ios-add-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #007AFF;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.feco-install-tip {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* ========================================
+   Later Button
+   ======================================== */
+
+.feco-install-later {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: all 0.2s ease;
+}
+
+.feco-install-later:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-height: 700px) {
+    .feco-install-card {
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .feco-install-steps {
+        gap: 12px;
+    }
+}
+</style>
+
+<script>
+(function() {
+    'use strict';
+    
+    var popup = document.getElementById('fecoInstallPopup');
+    var closeBtn = document.getElementById('fecoInstallClose');
+    var laterBtn = document.getElementById('fecoInstallLater');
+    var installBtn = document.getElementById('fecoInstallBtn');
+    var androidContent = document.getElementById('fecoInstallAndroid');
+    var iosContent = document.getElementById('fecoInstallIOS');
+    var installLink = document.getElementById('fecoInstallLink');
+    
+    var deferredPrompt = null;
+    
+    // ========================================
+    // DEVICE DETECTION
+    // ========================================
+    
+    function isIOS() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+    
+    function isAndroid() {
+        return /Android/.test(navigator.userAgent);
+    }
+    
+    function isStandalone() {
+        return window.matchMedia('(display-mode: standalone)').matches || 
+               window.navigator.standalone === true;
+    }
+    
+    function isSafari() {
+        return /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+    }
+    
+    // ========================================
+    // STORAGE
+    // ========================================
+    
+    function hasSeenPrompt() {
+        return localStorage.getItem('feco_install_prompted') === 'true';
+    }
+    
+    function setPromptSeen() {
+        localStorage.setItem('feco_install_prompted', 'true');
+    }
+    
+    function clearPromptSeen() {
+        localStorage.removeItem('feco_install_prompted');
+    }
+    
+    // ========================================
+    // POPUP CONTROLS
+    // ========================================
+    
+    function showPopup() {
+        if (isIOS()) {
+            iosContent.style.display = 'block';
+            androidContent.style.display = 'none';
+        } else {
+            androidContent.style.display = 'block';
+            iosContent.style.display = 'none';
+        }
+        popup.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function hidePopup() {
+        popup.classList.remove('show');
+        document.body.style.overflow = '';
+        setPromptSeen();
+    }
+    
+    // Global function for settings link
+    window.fecoShowInstallPrompt = showPopup;
+    
+    // ========================================
+    // ANDROID - beforeinstallprompt
+    // ========================================
+    
+    window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        // Show install link in settings
+        if (installLink) {
+            installLink.style.display = 'flex';
+            installLink.onclick = function(ev) {
+                ev.preventDefault();
+                showPopup();
+            };
+        }
+        
+        // Auto-show popup for first time visitors
+        if (!hasSeenPrompt() && !isStandalone()) {
+            setTimeout(showPopup, 3000); // Show after 3 seconds
+        }
+    });
+    
+    // Install button click (Android)
+    if (installBtn) {
+        installBtn.onclick = function() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(function(choiceResult) {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('FlowEco installed!');
+                    }
+                    deferredPrompt = null;
+                    hidePopup();
+                });
+            }
+        };
+    }
+    
+    // ========================================
+    // iOS - Show instructions
+    // ========================================
+    
+    if (isIOS() && isSafari() && !isStandalone()) {
+        // Show install link in settings
+        if (installLink) {
+            installLink.style.display = 'flex';
+            installLink.onclick = function(ev) {
+                ev.preventDefault();
+                showPopup();
+            };
+        }
+        
+        // Auto-show popup for first time visitors
+        if (!hasSeenPrompt()) {
+            setTimeout(showPopup, 3000);
+        }
+    }
+    
+    // ========================================
+    // EVENT LISTENERS
+    // ========================================
+    
+    if (closeBtn) closeBtn.onclick = hidePopup;
+    if (laterBtn) laterBtn.onclick = hidePopup;
+    
+    // Close on overlay click
+    popup.onclick = function(e) {
+        if (e.target === popup) hidePopup();
+    };
+    
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') hidePopup();
+    });
+    
+    // ========================================
+    // ADD LINK TO SETTINGS PAGE
+    // ========================================
+    
+    // If settings page exists, add the install link (always show, even if installed)
+    var settingsNav = document.querySelector('[data-page="settings"]');
+    if (settingsNav && installLink) {
+        // Clone and insert after settings link
+        var linkClone = installLink.cloneNode(true);
+        linkClone.style.display = 'flex';
+        linkClone.className = settingsNav.className;
+        
+        // Change text if already installed
+        if (isStandalone()) {
+            linkClone.querySelector('.feco-nav-text').textContent = 'הוראות התקנה';
+            linkClone.querySelector('.feco-nav-icon').textContent = '📖';
+        }
+        
+        linkClone.onclick = function(ev) {
+            ev.preventDefault();
+            if (typeof fecoCloseSidebar === 'function') fecoCloseSidebar();
+            setTimeout(showPopup, 300);
+        };
+        
+        // Insert after settings in the parent
+        if (settingsNav.parentNode) {
+            settingsNav.parentNode.insertBefore(linkClone, settingsNav.nextSibling);
+        }
+    }
+    
+    console.log('📲 FlowEco Install Prompt Ready');
+    
+})();
+</script>

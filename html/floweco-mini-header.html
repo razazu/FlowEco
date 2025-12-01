@@ -1,0 +1,47 @@
+<!-- FlowEco Mini Header Logo -->
+
+<div class="feco-mini-header" id="fecoMiniHeader">
+    <img src="/wp-content/uploads/2025/11/floweco-icon-192.png" alt="FlowEco" class="feco-mini-logo">
+    <span class="feco-mini-title">FlowEco</span>
+</div>
+
+<style>
+/* Mini Header - Mobile Only */
+.feco-mini-header {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .feco-mini-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 6px 20px;
+        background: transparent;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+}
+    
+    .feco-mini-logo {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+    
+    .feco-mini-title {
+        font-family: 'Heebo', -apple-system, sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: -0.02em;
+    }
+
+    
+
+</style>

@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+body {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600 !important;
+}
+
+strong, b {
+    font-weight: 500 !important;
+}

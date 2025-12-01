@@ -6,26 +6,16 @@
     bottom: -100px;
     z-index: -1;
     background-color: #0a0e1a;
-    background-image:
-        linear-gradient(rgba(16,185,129,0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16,185,129,0.1) 1px, transparent 1px),
-        linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
-    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    background-image: 
+        radial-gradient(circle at 10% 10%, rgba(16,185,129,0.25) 0%, transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(59,130,246,0.2) 0%, transparent 25%),
+        radial-gradient(circle at 50% 50%, rgba(16,185,129,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(59,130,246,0.18) 0%, transparent 25%),
+        radial-gradient(circle at 80% 90%, rgba(139,92,246,0.18) 0%, transparent 25%);
 }
 
-.dark-grid-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at 50% 50%, rgba(16,185,129,0.05) 0%, transparent 50%);
-}
-
-/* Fix Safari bottom bar white flash */
 html {
+    background: linear-gradient(to bottom, #0a0e1a, #0a0e1a);
     background-color: #0a0e1a;
     overscroll-behavior: none;
 }
@@ -33,4 +23,12 @@ html {
 body {
     background: transparent;
     overscroll-behavior: none;
+    min-height: 100vh;
+}
+
+/* iOS Safari fix */
+@supports (-webkit-touch-callout: none) {
+    .floweco-dark-grid {
+        bottom: -200px;
+    }
 }
