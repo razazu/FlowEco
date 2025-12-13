@@ -1,15 +1,15 @@
-# FlowEco API v2 - Staging
+# FlowEco API v2 - Production
 # Modular Worker Configuration
 
-name = "floweco-api-staging"
+name = "floweco-api"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
 
 # D1 Database binding
 [[d1_databases]]
 binding = "DB"
-database_name = "floweco-db-staging"
-database_id = "566fdb22-b2e8-4a18-8dda-e74da246213b"
+database_name = "floweco-db"
+database_id = "9a28a039-738a-4892-bd16-d8f673fc7038"
 
 # Environment variables (set via Cloudflare dashboard or wrangler secret)
 # JWT_SECRET
