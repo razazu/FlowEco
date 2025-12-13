@@ -1,0 +1,18 @@
+{
+  "name": "floweco-api-v2",
+  "version": "2.0.0",
+  "description": "FlowEco Financial Management API - Modular Version",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "keywords": ["cloudflare", "workers", "finance", "api"],
+  "author": "FlowRaz Solutions",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
