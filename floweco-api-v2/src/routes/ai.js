@@ -81,10 +81,10 @@ export async function handleAiChat(request, env, userId, corsHeaders) {
       'Content-Type': 'application/json' 
     },
     body: JSON.stringify({
-      model: 'gpt-4o-mini',
-      messages: messages,
-      max_tokens: 600,
-      temperature: 0.7
+     model: 'gpt-5-mini',
+max_completion_tokens: 600,
+reasoning_effort: 'low'
+
     })
   });
 
@@ -120,7 +120,7 @@ export async function handleAiInsight(request, env, corsHeaders) {
         'Authorization': `Bearer ${env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5-mini',
         messages: [
           {
             role: 'system',
@@ -128,8 +128,8 @@ export async function handleAiInsight(request, env, corsHeaders) {
           },
           { role: 'user', content: prompt }
         ],
-        max_tokens: 150,
-        temperature: 0.7
+        max_completion_tokens: 150,
+        reasoning_effort: 'low'
       })
     });
     
